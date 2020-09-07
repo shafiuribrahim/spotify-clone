@@ -16,12 +16,15 @@ const scopes = [
 export const getTokenFromUrl = () => {
   return window.location.hash
     .substring(1)
-    .split('&')
+    .split("&")
     .reduce((initial, item) => {
-      // #accessToken = mysupersecretkey&name=shafiur
-      let parts = item.split('=')
-    })
-}
+      // .split function is allowing the program to split after & sign **READ Documentation**
+      var parts = item.split("=");
+      initial[parts[0]] = decodeURIComponent(parts[1]);
+
+      return initial;
+    }, {});
+};
 
 export const loginUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
   "%20"
