@@ -27,13 +27,21 @@ function App() {
 
 
       spotify.setAccessToken(_token);
+
       spotify.getMe().then((user) => {
-        //console.log('Show me the user', user);
         dispatch({
           type: "SET_USER",
           user: user,
         });
       });
+
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: "SET_PLAYLIST",
+          playlists: playlists,
+        })
+      })
+
     }
     // console.log("I have a token ->", token);
   }, []);

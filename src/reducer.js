@@ -13,24 +13,32 @@ const reducer = (state, action) => {
 
   // Action has two things: 1. Type and 2. [payload]
 
+  // eslint-disable-next-line default-case
   switch (action.type) {
+
     case "SET_USER":   // Action
     return {
       ...state,
       user: action.user, // Payload
-      };
+    };
 
     case "SET_TOKEN":
-      return {
-        ...state,
-        token: action.token,
-      };
+    return {
+      ...state,
+      token: action.token,
+    };
 
     case "SET_PLAYING":
-      return {
-        ...state,
-        playing: action.playing,
-      };
+    return {
+      ...state,
+      playing: action.playing,
+    };
+
+    case "SET_PLAYLIST":
+    return {
+      ...state,
+      playlists: action.playlists,
+    };
   }
 }
 

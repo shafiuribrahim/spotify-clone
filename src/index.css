@@ -1,3 +1,9 @@
+body::-webkit-scrollbar{
+  display: none;
+  /*This block of code allows you to scroll without showing the scroll bar*/
+}
+
+
 *{
   margin: 0;
 }
